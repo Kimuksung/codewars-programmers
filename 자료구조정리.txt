@@ -1,0 +1,6 @@
+Tree
+탐색 및 검색 시 자주 사용
+
+heap = 완전 이진 트리 형태
+참고 : https://docs.python.org/ko/3/library/heapq.html
+최대 , 최소를 구할 떄 O(log2n) 으로 줄여준다!
