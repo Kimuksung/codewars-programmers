@@ -140,3 +140,13 @@ print ( Counter(str1_data)&Counter(['FR','DD']) )
 -
 
 참고 https://3months.tistory.com/344?category=753896
+
+일반적인 시간 복잡도
+N <= 11 / O(N!)
+N <= 25 / O(2^n)
+N <= 100 / O(N^4)
+N <= 500/ O(N^3)
+N <= 3,000 / O(N^2logN)
+N <= 5,000 / O(N^2)
+N <= 1,000,000 / O(NlogN)
+N <= 10,000,000 / O(N)
