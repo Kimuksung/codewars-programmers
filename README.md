@@ -74,6 +74,10 @@ bin(number) `bin(10)[2:] -> 1010`
 math.ceil(number) : 올림
 math.floor(number) : 내림
 math.trunc(number) : 버림
+
+# 문자열 -> 진법 int 형
+    3진법-> 10진법 = int( '1200', 3) -> 7
+
 # combination / permutation
 
 # stack
