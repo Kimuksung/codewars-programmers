@@ -1,10 +1,20 @@
 def solution(s, n):
     answer = ''
-    alphabet = dict()
-    alpha = 'abcdefgijklmnopqrstuvwxyz'
-    for i in s.lower() :
-        print ( i )
-        print ( alpha.index(i) )
-        #answer += alpha[( alpha.index(i) + n ) % 24 ] 
-
-solution ( "AB" , 1 )
+    for data in s :
+        temp = ord(data)
+        if data == ' ' :
+            answer += ' '
+        
+        elif temp >= 97 :
+            temp += n
+            if temp > 122 :
+                temp = temp % 123 + 97
+            answer +=  chr(temp)
+            
+        else:
+            temp += n
+            if temp > 90 :
+                temp = temp%91 + 65
+            answer +=  chr(temp)
+            
+    return answer
