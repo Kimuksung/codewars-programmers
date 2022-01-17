@@ -1,5 +1,8 @@
 # 기초문법 정리
 
+
+
+
 # Lambda
 함수 = class를 통해 생성된 Object
 `def function(parameter) :
@@ -74,16 +77,12 @@ bin(number) `bin(10)[2:] -> 1010`
 math.ceil(number) : 올림
 math.floor(number) : 내림
 math.trunc(number) : 버림
-
-# 문자열 -> 진법 int 형
-    3진법-> 10진법 = int( '1200', 3) -> 7
-
 # combination / permutation
 
 # stack
 
 # Tree
-
+FIFO 형태로 한쪽으로 쌍 찾는 문제에서 주로 사용
 # Heap
 이진 트리로써 파이썬에서 제공하는 Heapq는 Minheap
 ````
@@ -138,19 +137,32 @@ print ( Counter(str1_data)&Counter(['FR','DD']) )
 
 # * 연산자 / *args / **kargs
 
+-* operator = Packing 
+List를 한번에 나타날 경우에도 사용한다.
+```
+T1 = [[0]*N]*M 
+T2 = [[0] for M _ range ( M ) ]
+위 둘의 차이는 ?
+->  T1 = Packing 되어 동일한 Memory 값을 바라보게 된다.
+-> 	T2 = 각각이 다른 list Object이기 때문에 다른 값 설정 가능하다.
+
+arr = [1,2,3]
+[*arr ] -> [1,2,3] 으로 표현 가능
+# 참조 : https://pythontutor.com/visualize.html#mode=display
+```
+- *args 
+```
+Tuple을 Object로 받아 사용
+```
+- **kargs
+```
+Dictionary를 Object로 받아 사용
+```
+
+
 # decorator
 - other function을 조작하여 new function을 생성
 - 코드를 간결하게 해준다 ( refactoring )
 -
 
 참고 https://3months.tistory.com/344?category=753896
-
-일반적인 시간 복잡도
-N <= 11 / O(N!)
-N <= 25 / O(2^n)
-N <= 100 / O(N^4)
-N <= 500/ O(N^3)
-N <= 3,000 / O(N^2logN)
-N <= 5,000 / O(N^2)
-N <= 1,000,000 / O(NlogN)
-N <= 10,000,000 / O(N)
