@@ -10,8 +10,9 @@
 	-> 
 	`labmda parameter : 결과`
 
-# Or
-무조건 | 로 사용하는 것이 좋음( 특히 dataframe 시 필수 )
+# And / Or
+And는 앞이  True 인 경우에만 뒤에를 본다
+OR은 무조건 | 로 사용하는 것이 좋음( 특히 dataframe 시 필수 )
 
 # Zip
 
@@ -39,10 +40,10 @@ Zfill = 0을 왼쪽으로 채워주는 역할
 
 
 ## Sorted / reversed
-
+```
 sorted( iterator , key = lambda x : ( - x[0] , x[1] ) )
 reversed( iterator )
-
+```
 ## Dictionary get() / keys() / values() /items()
 key가 없다면 뒤 파라미터 값으로 return
 `Data = {'a' : 1 , 'b' :2 }`
@@ -80,9 +81,17 @@ math.trunc(number) : 버림
 # combination / permutation
 
 # stack
-
-# Tree
 FIFO 형태로 한쪽으로 쌍 찾는 문제에서 주로 사용
+List를 이용하여 풀면 된다.
+쌍을 찾거나 갯수 세는데 주로 사용
+
+# Queue , Deque
+```
+from  collections  import  deque
+VFS에 사용
+```
+# Tree
+
 # Heap
 이진 트리로써 파이썬에서 제공하는 Heapq는 Minheap
 ````
