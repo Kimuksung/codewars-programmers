@@ -11,4 +11,5 @@ def solution ( a , b , n ) :
     print ( a, b )
     solution ( b , 6-a-b , n-1)
 
-solution ( 1 , 3 , 3)
+
+solution ( 1 , 3 , n )
