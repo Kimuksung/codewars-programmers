@@ -1,12 +1,23 @@
 # 기초문법 정리
 
 # 자료형
-Boolean
+
+> Boolean
+> 
 False = 0 , None , 빈 Containter ( List , tuple .. )  
 True = 1 등 False를 정의하는 외 모든 값
 
+> List
+> 
 List  = 여러 자료형을 저장할 수 있는 자료형으로 element / index로 이루어져 있다.
 List는 하나의 오브젝트 형태로 파라미터 인자값으로 넘겨주어도 해당 값이 변경된다.
+Min / Max / Sum / Reversed / Enumerate / Join
+
+리스트 내포(List comprehension)
+
+    [i for i in range(5)]
+    [i for i in range(5) if i > 2]
+    [i if i > 2 else None for i in range(5) ]
 
 추가
 Append = 하나의 element
@@ -30,12 +41,54 @@ Clear = List 비우기
     a.remove(5)
     a.clear()
 
+문자열 변환 
+    ''.join ( list() ) # 이때  List내 자료형은 문자열이여야 한다
+
+> dictionary
+> 
+ Dictionary get() / keys() / values() /items()
+ 
+    a = {'name' : 'uksung' }
+    #key 추가
+    a[new_key] = 'new_value'
+        
+    #삭제
+    del a[new_key]
+     
+     #key checking
+     if key in dictionary 
+     Data = {'a' : 1 , 'b' :2 }
+    
+    Data.get('a' , 'no_data')
+    -> 1
+    Data.get('c' , 'no_data')
+    -> no_data
+        dictionary.get(key)  ## key가 없다면 뒤 파라미터 값으로 / None return 
+
+
+>range
+>
+range(A,B,C) 로 일반적으로 B에 Int형으로 B//2 와 같은 형태로 쓴다.
+break : 반복문 종료
+continue : 현재 반복 생략
+
+> tuple
+>
+문자열 여러 줄에 걸치는 용도와 헷갈리지 않도록
+a = ( 'hi' 'hello' 'check' )
+b = ( a, b,c )
+
 # 연산자
 - '+' : 덧셈 / containter 결합 / 원본 데이터에 영향 X
 - '*' : 곱셈 / 반복연산자  / 원본 데이터에 영향 X
 - '//' : 몫
 - -'%' : 나머지
 
+python time 은 unix time으로써, UTC 기준 특정 날짜로부터 몇초가 지난지로 구별
+
+# And / Or
+And는 앞이  True 인 경우에만 뒤에를 본다
+OR은 무조건 | 로 사용하는 것이 좋음( 특히 dataframe 시 필수 )
 
 # Lambda
 함수 = class를 통해 생성된 Object
@@ -44,9 +97,6 @@ Clear = List 비우기
 	-> 
 	`labmda parameter : 결과`
 
-# And / Or
-And는 앞이  True 인 경우에만 뒤에를 본다
-OR은 무조건 | 로 사용하는 것이 좋음( 특히 dataframe 시 필수 )
 
 # Zip
 
@@ -74,17 +124,21 @@ Zfill = 0을 왼쪽으로 채워주는 역할
 
 
 ## Sorted / reversed
+reversed 는 결과가 **generator**로 한번 호출한 값은 다시 호출이 불가능
+Why ? python은 memory를 우선하기 위해 주소값 접근 후 next() 함수를 이용하여 접근
 ```
 sorted( iterator , key = lambda x : ( - x[0] , x[1] ) )
 reversed( iterator )
+
+b = reversed([1,2,3,4])
+#호출 가능
+for  i  in  b :
+print ( i )
+
+# 호출 불가
+for  i  in  b :
+print ( i )
 ```
-## Dictionary get() / keys() / values() /items()
-key가 없다면 뒤 파라미터 값으로 return
-`Data = {'a' : 1 , 'b' :2 }`
-`Data.get('a' , 'no_data')`
--> 1
-`Data.get('c' , 'no_data')`
--> no_data
 ## Map / filter / reduce
 
 Map = list의 element에 함수를 적용
@@ -112,7 +166,29 @@ bin(number) `bin(10)[2:] -> 1010`
 math.ceil(number) : 올림
 math.floor(number) : 내림
 math.trunc(number) : 버림
+
+2의 N제곱
+
+    1<<N # Left shit를 이용
+
+# Iterator
+List / Dictionary / 
+
 # combination / permutation
+> permutation  = 순열로써, 순서까지도 생각될 때
+> 
+nPr = n!/(n-r)! 
+>combination 조합로써 순서는 생각 X
+>
+nCr=nPr/r!
+
+    from itertools import permutations
+    from itertools import combinations
+    
+    a = [1,2,3]
+    permutations ( a, 2 ) 
+    combinations(a,2)
+
 
 # stack
 FIFO 형태로 한쪽으로 쌍 찾는 문제에서 주로 사용
@@ -120,6 +196,8 @@ List를 이용하여 풀면 된다.
 쌍을 찾거나 갯수 세는데 주로 사용
 
 # Queue , Deque
+VFS에 주로 사용되면 단계로 진행되는 탐색에서 주로 사용
+시작점을 모두 deque에 넣는게 특징
 ```
 from  collections  import  deque
 VFS에 사용
