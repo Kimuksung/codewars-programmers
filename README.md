@@ -1,6 +1,40 @@
 # 기초문법 정리
 
+# 자료형
+Boolean
+False = 0 , None , 빈 Containter ( List , tuple .. )  
+True = 1 등 False를 정의하는 외 모든 값
 
+List  = 여러 자료형을 저장할 수 있는 자료형으로 element / index로 이루어져 있다.
+List는 하나의 오브젝트 형태로 파라미터 인자값으로 넘겨주어도 해당 값이 변경된다.
+
+추가
+Append = 하나의 element
+Insert = 특정 index에 하나의 element 추가
+Extend = List 추가
+
+    a = [1,2,3,4,5] # a=list()
+    a.append(1)
+    a.insert(3,10)
+    a.extend([1,2,3]
+
+삭제
+Del = 여러 값 삭제 가능
+Pop = 하나의 값 삭제 ( Default = -1 )
+Remove = 특정 Value 처음 나오는 index 삭제
+Clear = List 비우기
+
+    a.pop() # -1 default
+    del a[3]
+    del a[4:5]
+    a.remove(5)
+    a.clear()
+
+# 연산자
+- '+' : 덧셈 / containter 결합 / 원본 데이터에 영향 X
+- '*' : 곱셈 / 반복연산자  / 원본 데이터에 영향 X
+- '//' : 몫
+- -'%' : 나머지
 
 
 # Lambda
