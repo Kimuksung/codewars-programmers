@@ -313,8 +313,9 @@ Dictionary를 Object로 받아 사용
 참고 https://3months.tistory.com/344?category=753896
 
 # 시뮬레이션
-BOJ 15683과 같이 특정 단계에서 경우의 수를 permutation과 같이 나타내서 check가 필요한 경우 ( 삼성 아카데미 기출 문제 )
--> 경우의 수를 bit 형태로 나누어 푼다.
+
+> BOJ 15683과 같이 특정 단계에서 경우의 수를 permutation과 같이 나타내서 check가 필요한 경우 ( 삼성 아카데미 기출 문제 )
+-> 경우의 수를 bit 형태로 나누어 푼다. / https://www.acmicpc.net/problem/15683
 
 10진법인 경우
 3491  -> 349 -> 34 -> 4
