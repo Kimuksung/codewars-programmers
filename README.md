@@ -74,9 +74,15 @@ continue : 현재 반복 생략
 
 > tuple
 >
-문자열 여러 줄에 걸치는 용도와 헷갈리지 않도록
-a = ( 'hi' 'hello' 'check' )
-b = ( a, b,c )
+List와 유사하지만 한번 결정된 값은 변경 불가
+괄호는 생략 가능
+함수에서 Return 시 일반적으로 Tuple 형태 E.g ) enumerate , divmod , map , filter
+
+    #tuple 하나 선언 시에는 
+    (293 , ) 
+    문자열 여러 줄에 걸치는 용도와 헷갈리지 않도록
+    a = ( 'hi' 'hello' 'check' )
+    b = ( a, b,c )
 
 # 연산자
 - '+' : 덧셈 / containter 결합 / 원본 데이터에 영향 X
@@ -90,12 +96,30 @@ python time 은 unix time으로써, UTC 기준 특정 날짜로부터 몇초가 
 And는 앞이  True 인 경우에만 뒤에를 본다
 OR은 무조건 | 로 사용하는 것이 좋음( 특히 dataframe 시 필수 )
 
+# 함수
+>가변 매개변수
+
+    def name ( parameter , ... , * parameter )
+    #가변 매개 변수 앞에는 기본 매개 변수 X
+
+>기본 매개 변수
+
+    def name ( a , b, c )
+    #키워드 매개변수 
+    def name ( a=2 , b=2 , c=2 ) 와 같은 형태
+
+> 재귀 함수
+> 
+memoization(dictionary 에 특정 값을 넣어둔다던지 ) 을 필수로 생각하고 있어야 한다.
+많은 연산이 필요한 경우 중복으로 발생 가능
+
 # Lambda
-함수 = class를 통해 생성된 Object
-`def function(parameter) :
-	return 결과`
-	-> 
-	`labmda parameter : 결과`
+함수를 간단하게 구현
+
+    lambda 매개변수 : return v값
+    lambda x : x**2
+    map(int , input().split() )
+    filter ( lambda x > 3 , [1,2,3,4,5] )
 
 
 # Zip
@@ -287,3 +311,43 @@ Dictionary를 Object로 받아 사용
 -
 
 참고 https://3months.tistory.com/344?category=753896
+
+# 시뮬레이션
+BOJ 15683과 같이 특정 단계에서 경우의 수를 permutation과 같이 나타내서 check가 필요한 경우 ( 삼성 아카데미 기출 문제 )
+-> 경우의 수를 bit 형태로 나누어 푼다.
+
+10진법인 경우
+3491  -> 349 -> 34 -> 4
+1 / 9 / 4 / 3
+
+4진법인 경우
+39 -> 9 -> 2
+3 / 1 / 2 
+
+    def all_target ( cctv_cnt ) : #4진법 경우의 수 나타내기
+        answer = []
+        for i in range ( 1<<cctv_cnt*2 ) :
+            temp = i
+            target_data = ''
+            for j in range( cctv_cnt ) :
+                target_data = str ( temp % 4 ) + target_data
+                temp //= 4
+            answer.append( target_data )
+        return answer
+
+# File
+> stream = 외부 파일 및 네트워크와 통신 할 때 흐르는 길이라고 생각하면 된다.
+> 
+
+
+> Text file
+> 
+
+    fileobject = open ( 'foo.txt' , 'rw+' )
+    with open ( 파일경로 , 모드 ) as object :
+    	code
+    fileobject.close()
+    fileobject.write()
+    fileobject.read()
+
+> Binary file
