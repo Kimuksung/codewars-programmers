@@ -556,8 +556,82 @@ Dictionary를 Object로 받아 사용
 
 참고 https://3months.tistory.com/344?category=753896
 
-  
+  # 정렬
+###  Merge Sort
+- 나누는 경우 N -> 1 O(N)
+- 병합하는 경우 1 -> N O(NK) = O(NlogN)
+- 공간 복잡도 = O(N)
+- Stable Sort ( 같은 값이라 하여도 순서를 보장 )
+```
+arr = [ 3 , 2 , 116 ,7 , 62 , 235 , 1 , 23 , 55 , 77]
+n = len(arr)
+temp_arr = [0] * n
 
+def merge( start , end ) :
+    mid = ( start + end ) // 2
+    left_idx = start
+    right_idx = mid 
+
+    for i in range( start , end ) :
+        if right_idx == end :
+            temp_arr[i] = arr[left_idx]
+            left_idx += 1
+        elif left_idx == mid or arr[left_idx] > arr[right_idx]:
+            temp_arr[i] = arr[right_idx]
+            right_idx += 1
+        else:
+            temp_arr[i] = arr[left_idx] 
+            left_idx += 1
+
+    arr[start:end] = temp_arr[start:end]
+
+def merge_sort ( start , end ) :
+    # 재귀 end조건
+    if end == start + 1 : 
+        return
+    mid = ( start + end ) // 2
+    merge_sort( start , mid )
+    merge_sort( mid , end )
+    merge(start,end) 
+
+merge_sort( 0 , 3 )
+print ( arr )
+
+```
+### Quick Sort
+- 실제 구현은 Merge sort로 하는게 재귀적으로 표현하기 쉽다.
+- pivot 이라는 기준점을 잡은 뒤 좌 -> 우 / 우 -> 좌
+- 평균적(중간쯤 오는 경우)으로 O(NlogN) But !! 최악 O(N^2)
+- 공간 복잡도 = O(1)라이브러리 내에서 퀵소트는 피벗 후보를 3개 중 중앙값 / 일정 Depth 이상 들어가면 힙소트로 구현되도록 되어있다 -> introspective sort
+```
+arr = [ 3 , 2 , 116 ,7 , 62 , 235 , 1 , 23 , 55 , 77]
+def Quicksort( start ,end ) :
+    #재귀 종료
+    if end == start + 1 : return
+
+    pivot = arr[start]
+    left = start+1 
+    right = end
+    while ( True ) :
+        # 1. 좌 -> 우
+        print (pivot , left , right )
+        while( left <= right and arr[left] <= pivot ) : left += 1
+        # 2. 우 -> 좌
+        while( left <= right and arr[right] >= pivot ) : right -= 1
+        # 4. right < left 종료 조건
+        if right < left :
+            break
+        # 3. 둘다 멈추면 swap
+        arr[left] , arr[right] = arr[right] , arr[left]
+    arr[start] , arr[right] = arr[right] , arr[start]    
+    
+    #재귀 이용
+    Quicksort( start , right )
+    Quicksort( right + 1 , end )
+    
+Quicksort( 0 , 3 )     
+print ( arr )
+```
 # 시뮬레이션
 
   
