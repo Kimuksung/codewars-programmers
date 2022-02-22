@@ -557,11 +557,19 @@ Dictionary를 Object로 받아 사용
 참고 https://3months.tistory.com/344?category=753896
 
   # 정렬
+## Python Sort ( timsort )
+>MergeSort + InsertSort => Stable Sort , O(NlogN ) 빠르면 O(N)을 보장
+
+구현시 주의점
+- sort는 같은 우선순위 비교 시 False !
+
+
 ###  Merge Sort
 - 나누는 경우 N -> 1 O(N)
 - 병합하는 경우 1 -> N O(NK) = O(NlogN)
 - 공간 복잡도 = O(N)
 - Stable Sort ( 같은 값이라 하여도 순서를 보장 )
+- Comparsion sort (값을 비교 )
 ```
 arr = [ 3 , 2 , 116 ,7 , 62 , 235 , 1 , 23 , 55 , 77]
 n = len(arr)
@@ -603,6 +611,7 @@ print ( arr )
 - pivot 이라는 기준점을 잡은 뒤 좌 -> 우 / 우 -> 좌
 - 평균적(중간쯤 오는 경우)으로 O(NlogN) But !! 최악 O(N^2)
 - 공간 복잡도 = O(1)라이브러리 내에서 퀵소트는 피벗 후보를 3개 중 중앙값 / 일정 Depth 이상 들어가면 힙소트로 구현되도록 되어있다 -> introspective sort
+- Comparsion sort (값을 비교 )
 ```
 arr = [ 3 , 2 , 116 ,7 , 62 , 235 , 1 , 23 , 55 , 77]
 def Quicksort( start ,end ) :
@@ -632,6 +641,31 @@ def Quicksort( start ,end ) :
 Quicksort( 0 , 3 )     
 print ( arr )
 ```
+### counting sort
+- 미리 값의 범위를 지정하고 공간을 이용하여 접근 ( 한정적인 경우에만 )
+- Non-Comparsion sort ( 값을 비교 X )
+```
+N = int ( input() )
+
+#Counting sort
+arr = [0] * ( 2000001 )
+for i in range( N ) :
+    temp = int ( input() )
+    temp += 1000000
+    arr[temp] += 1
+
+#print ( '-' * 10)
+for i in range( 2000001 ) :
+    while arr[i] :
+        print ( i - 1000000 )
+        arr[i] -= 1
+```
+
+### radix sort
+- 1 의 자리  -> 10의 자리 -> ... 자리 수  별로 0 - 9 계속하여 정렬
+- counting sort를 N자리수로 한것과 같다고 생각하면 된다.
+- Non-Comparsion sort ( 값을 비교 X )
+
 # 시뮬레이션
 
   
