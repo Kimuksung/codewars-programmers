@@ -14,6 +14,6 @@ B.sort()
 
 for index , value in enumerate ( A ) :
     answer += int(value) * B[index]
-print ( A )
-print ( B )
+#print ( A )
+#print ( B )
 print ( answer )
