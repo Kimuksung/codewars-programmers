@@ -19,7 +19,7 @@ def dfs ( graph , visited , start ) :
 
     return dfs_answer
 
-def bfs ( graph , start , n , visited) :
+def bfs ( graph , start , visited) :
     answer = []
     queue = deque()
     queue.append( start )
@@ -57,6 +57,6 @@ def solution( ) :
     #DFS
     print ( ' '.join ( str(x) for x in dfs ( graph , [False]* ( n + 1 ) , start ) ) )
     #VFS
-    print ( ' '.join ( str(x) for x in bfs ( graph , start , n , [False]* ( n + 1 ) ) ) )
+    print ( ' '.join ( str(x) for x in bfs ( graph , start , [False]* ( n + 1 ) ) ) )
 
 solution()
