@@ -1,27 +1,45 @@
+# BOJ 4949번
 
-while True :
-    commands = input()
-    if commands == '.' :
-        break
+import sys
+input = sys.stdin.readline
+answer = []
+
+while ( True ) :
     stack = []
-    answer = 'yes'
-    for data in commands :
-        if data in ['(' , '['] :
-            stack.append(data)
+    check = False
+    char_list = input().rstrip()
 
-        elif data == ')' :
-            if not stack or stack[-1] != '(': # stack.pop() != '(': #stack[-1] != '(':
-                answer = 'no'
+    if char_list[0] == '.' :
+        break
+
+    for char_data in char_list :
+        if char_data == '.' :
+            break
+        elif char_data == '(' :
+            stack.append( '(' )
+        elif char_data == '[' :
+            stack.append( '[' )
+        elif char_data == ')' :
+            if stack and stack[-1] == '(' :
+                stack.pop()
+            else :
+                check = True
+                answer.append('no')
                 break
-            stack.pop()
+        elif char_data == ']' :
+            if stack and stack[-1] == '[' :
+                stack.pop()
+            else :
+                check = True
+                answer.append('no')
+                break
 
-        elif data == ']' :
-            if len(stack) == 0 or stack.pop() != '[':
-                answer = 'no' 
+    if check :
+            continue
 
-        #print ( data , stack , answer)
-    if len(stack) != 0 :
-        answer = 'no'
-        
-    #print ( stack )
-    print ( answer ) 
+    if stack :
+        answer.append( 'no' )
+        continue
+    answer.append( 'yes' )
+
+print( *answer )
