@@ -14,10 +14,6 @@ for data in datas :
         top = heapq.heappop(q)
         if top[0] > data[0] :
             heapq.heappush( q , top )
-            heapq.heappush( q , (data[1] ,data[0]) )
-        else :
-            heapq.heappush( q , (data[1] ,data[0]) )
-    else :
-        heapq.heappush( q , (data[1] ,data[0]) )
+    heapq.heappush( q , (data[1] ,data[0]) )
 
 print( len(q) )
