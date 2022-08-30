@@ -20,7 +20,6 @@ for _ in range(E):
 
 while q:
     value,node = heapq.heappop(q)
-    #print(node,value,q)
     # 1. Check
     if table[node]!=value :
         continue
