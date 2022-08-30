@@ -19,3 +19,11 @@
 17. [Decorator](https://dortmoot.tistory.com/106)
 
 # Algorithm
+1. [Binary Search](https://dortmoot.tistory.com/9)
+- Parametic search(최적화 값 구할 때)
+2. [Graph](https://dortmoot.tistory.com/12)
+- Node, Edge
+- Direction
+- Cycle
+- Complete Graph vs Connected Graph
+- DFS, BFS
