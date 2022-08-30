@@ -2,26 +2,26 @@
 
 1. [Tuple](https://dortmoot.tistory.com/91)
 2. [List](https://dortmoot.tistory.com/90)
-3. [Dictionary](https://dortmoot.tistory.com/92)
-- DefaultDict
+3. [Dictionary](https://dortmoot.tistory.com/92)   
+   - DefaultDict
 4. [Set](https://dortmoot.tistory.com/93)
-- issubset 
+   - issubset 
 5. [Function&Lambda](https://dortmoot.tistory.com/95)
-- *args
-- **kwargs
+   - *args
+   - **kwargs
 6. [Powerful Function](https://dortmoot.tistory.com/94)
-- map
-- filter
-- zip
+   - map
+   - filter
+   - zip
 7. [Iterators](https://dortmoot.tistory.com/96)
-- __iter__()
-- __next__()
-- StopIteration
+   - __iter__()
+   - __next__()
+   - StopIteration
 8. [Sort&Reserve](https://dortmoot.tistory.com/97)
 9. [Regular Expression](https://dortmoot.tistory.com/98)
-- match
-- search
-- findall
+   - match
+   - search
+   - findall
 
 10. [N Base&Ascii](https://dortmoot.tistory.com/99)
 11. [Permutation&Combination](https://dortmoot.tistory.com/100)
